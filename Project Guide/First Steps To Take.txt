@@ -1,0 +1,244 @@
+================================================================================
+ARGUS A.I. - FIRST STEPS TO TAKE (VSCODE BEGINNER GUIDE)
+================================================================================
+
+This guide walks you through running Argus A.I. from scratch using VSCode.
+Follow each step in order. Don't skip anything!
+
+================================================================================
+PART 1: INSTALL VSCODE
+================================================================================
+
+STEP 1: Download VSCode
+-----------------------
+1. Go to https://code.visualstudio.com/
+2. Click "Download for Windows" (or Mac/Linux)
+3. Run the installer
+4. Follow the installation wizard steps
+5. Launch VSCode when installed
+
+STEP 2: Install Essential VSCode Extensions
+-------------------------------------------
+1. In VSCode, click the Extensions icon (left sidebar, 4th icon down)
+   OR press Ctrl+Shift+X
+2. Search and install these extensions:
+   - "Python" by Microsoft (install the one by Microsoft)
+   - "Pylance" by Microsoft (optional but recommended)
+3. Close VSCode when done
+
+================================================================================
+PART 2: GET THE PROJECT FILES
+================================================================================
+
+STEP 3: Download the Project
+-----------------------------
+Option A - If you have the project as a ZIP:
+1. Extract the ZIP file to your Desktop
+2. Rename the folder to "Argus_A.I"
+
+Option B - If using Git:
+1. Open VSCode
+2. Click "Clone Repository" (blue button on welcome screen)
+3. Paste the GitHub URL
+4. Choose a location on your computer
+
+================================================================================
+PART 3: INSTALL PYTHON
+================================================================================
+
+STEP 4: Install Python
+---------------------
+1. Go to https://www.python.org/downloads/
+2. Click "Download Python" (latest version)
+3. IMPORTANT: During installation:
+   - Check "Add Python to PATH" (very important!)
+   - Check "Install pip" (usually included)
+4. Click "Install Now"
+5. Wait for installation to complete
+
+STEP 5: Verify Python Installation
+---------------------------------
+1. Open a new terminal in VSCode:
+   - Terminal menu → New Terminal (or press Ctrl+`)
+2. Type exactly:
+   python --version
+3. You should see something like "Python 3.11.x"
+4. If you see "python is not recognized", restart VSCode
+
+STEP 6: Install Python Packages
+--------------------------------
+1. In VSCode terminal, navigate to the project folder:
+   cd Desktop/Argus_A.I
+   (or wherever you put the project)
+2. Create a virtual environment (recommended):
+   python -m venv venv
+3. Activate it:
+   - Windows: venv\Scripts\activate
+   - You should see (venv) at the start of your terminal line
+4. Install all dependencies:
+   pip install -r requirements.txt
+5. Wait for installation to complete (may take 2-5 minutes)
+
+================================================================================
+PART 4: INSTALL NODE.JS (FOR FRONTEND)
+================================================================================
+
+STEP 7: Install Node.js
+-----------------------
+1. Go to https://nodejs.org/
+2. Download the LTS version (left button)
+3. Run the installer
+4. Click "Next" through all steps
+5. Restart VSCode to recognize Node.js
+
+STEP 8: Verify Node.js
+----------------------
+1. In VSCode terminal, type:
+   node --version
+2. You should see something like "v18.x.x" or "v20.x.x"
+
+================================================================================
+PART 5: SET UP THE FRONTEND
+================================================================================
+
+STEP 9: Install Frontend Dependencies
+-------------------------------------
+1. In VSCode terminal, navigate to webapp:
+   cd webapp
+2. Install npm packages:
+   npm install
+3. Wait for installation to complete (may take 1-2 minutes)
+4. Go back to project root:
+   cd ..
+
+================================================================================
+PART 6: RUN THE APPLICATION
+================================================================================
+
+STEP 10: Open Two Terminals
+---------------------------
+In VSCode, you need TWO terminals running at the same time:
+
+Terminal 1 (Backend):
+1. Click the + icon in the terminal panel to create a new terminal
+2. Make sure you're in the project folder
+3. Activate virtual environment:
+   venv\Scripts\activate
+4. Start the backend:
+   python webapp/backend.py
+5. You should see: "Starting Argus A.I Backend Server..."
+6. Keep this terminal running!
+
+Terminal 2 (Frontend):
+1. Click the + icon again to create another terminal
+2. Navigate to webapp:
+   cd webapp
+3. Start the frontend:
+   npm run dev
+4. You should see: "Local: http://localhost:3000/"
+
+STEP 11: Use the Application
+-----------------------------
+1. Click the link in Terminal 2 OR open your browser
+2. Go to: http://localhost:3000
+3. Click "Upload" in the navigation bar
+4. Upload an image (face photo works best)
+5. Click "Analyze" or "Detect"
+6. See the result: REAL or FAKE with confidence
+
+STEP 12: Stopping the Application
+----------------------------------
+When you're done:
+1. Click on each terminal
+2. Press Ctrl+C
+3. Or simply close VSCode
+
+================================================================================
+TROUBLESHOOTING COMMON ISSUES
+================================================================================
+
+ERROR: "python is not recognized" or "'python' is not recognized"
+----------------------------------------------------------
+- Python is not in your PATH
+- Solution: Restart VSCode, or reinstall Python and check "Add to PATH"
+
+ERROR: "pip is not recognized"
+----------------------------------------------------------
+- pip wasn't installed with Python
+- Solution: Reinstall Python, make sure "pip" is checked
+
+ERROR: "No module named 'flask'" or other module errors
+----------------------------------------------------------
+- Python packages not installed
+- Solution: Run: pip install -r requirements.txt
+- Make sure virtual environment is activated (venv)
+
+ERROR: "Port 3000 already in use"
+----------------------------------------------------------
+- Another program is using port 3000
+- Solution: Close other apps using port 3000, or change port in vite.config.js
+
+ERROR: "npm is not recognized"
+----------------------------------------------------------
+- Node.js not installed properly
+- Solution: Restart VSCode after installing Node.js
+
+ERROR: "Model not loaded" or predictions not working
+----------------------------------------------------------
+- Models folder may be missing files
+- Solution: Check that models/ folder has .h5 or .keras files
+- Backend will use Meso4_DF.h5 as primary model
+
+The page loads but nothing happens when I upload
+----------------------------------------------------------
+- Backend may not be running
+- Solution: Check Terminal 1 is running python webapp/backend.py
+- Check Terminal 1 for any error messages
+
+Frontend is loading very slowly
+----------------------------------------------------------
+- This is normal on first load (3D graphics)
+- Subsequent loads are faster
+- Or run: npm run build, then npm run preview
+
+================================================================================
+VSCODE SHORTCUTS REFERENCE
+================================================================================
+
+Ctrl+`        - Open/close terminal
+Ctrl+Shift+P  - Command palette
+Ctrl+S        - Save file
+Ctrl+Z        - Undo
+Ctrl+Y        - Redo
+Ctrl+F        - Find in file
+Ctrl+Shift+F  - Find in whole project
+Ctrl+B        - Toggle sidebar
+Ctrl+\        - Split editor
+
+================================================================================
+QUICK START COMMANDS (SUMMARY)
+================================================================================
+
+# One-time setup (after downloading):
+cd Desktop/Argus_A.I
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+cd webapp
+npm install
+cd ..
+
+# Every time you want to run:
+# Terminal 1:
+venv\Scripts\activate
+python webapp/backend.py
+
+# Terminal 2:
+cd webapp
+npm run dev
+
+# Then open http://localhost:3000
+
+================================================================================
+I HONESTLY PRAY YOU SUCEED FR
+================================================================================

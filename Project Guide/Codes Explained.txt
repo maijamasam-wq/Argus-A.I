@@ -1,0 +1,97 @@
+================================================================================
+ARGUS A.I. - CODES EXPLAINED (TLDR)
+================================================================================
+
+FOLDERS & FILES OVERVIEW
+================================================================================
+
+ROOT FOLDER
+-----------
+- README.md                Project documentation & quick start
+- requirements.txt         Python dependencies list
+- .gitignore              Git ignore rules
+- .env.example            Environment variable template (optional)
+
+docs/
+-----
+- README.md                Documentation index
+- frontend-redesign-plan.md  Design specifications & tech stack
+
+models/
+------
+- Meso4_DF.h5              Pre-trained deepfake detection model (primary)
+- argus_trained.keras     Custom trained model
+- argus_model.keras       Xception-based model
+- argus_model_xception.keras  Xception variant
+- argus_model_efficientnet_final.keras  EfficientNet variant
+- efficientnet_initial.keras  Initial EfficientNet weights
+- xception_v2_best_20260314_142518.keras  Best Xception v2
+- training_log_*.csv      Training history logs
+
+scripts/ (Python - for training/inference)
+-----------------------------------------
+- predict.py              Core detection class (used by backend)
+- cli_detect.py           Command-line detection tool
+- train_model.py          Main training script
+- train_model_v2.py       Improved training pipeline (two-phase)
+- train_improved.py       Alternative EfficientNet training
+- train_memorize.py       Memorization-optimized training
+- build_model.py          Model architecture builder
+- create_data_generators.py  Data generator creation
+- download_model.py       Model downloader & trainer
+- clean_data.py           Data cleanup (remove duplicates)
+
+uploads/
+--------
+- (empty)                 Runtime folder for user uploads
+
+webapp/ (React Frontend)
+------------------------
+- backend.py              Flask API server (runs detection)
+- index.html             Main HTML entry point
+- package.json           Node.js dependencies
+- vite.config.js         Vite build configuration
+- tailwind.config.js     Tailwind CSS configuration
+- postcss.config.js      PostCSS configuration
+- README.md              Frontend documentation
+
+webapp/src/
+-----------
+- main.jsx               React entry point
+- App.jsx                Main app with routing & Lenis smooth scroll
+- index.css              Global styles & Tailwind imports
+- ThemeContext.jsx      Dark/light theme provider
+
+webapp/src/components/
+--------------------
+- 3d/Hero3D.jsx          3D hero component
+- 3d/Particles.jsx       Three.js particle system
+- animations/Parallax.jsx  Parallax scroll effect
+- animations/Reveal.jsx    GSAP reveal animations
+- layout/Header.jsx       Navigation header
+- layout/Footer.jsx       Footer component
+- ui/CustomCursor.jsx     Custom cursor effect
+
+webapp/src/pages/
+----------------
+- Home.jsx               Landing page with 3D hero
+- Upload.jsx             Image upload & detection
+- FAQ.jsx                FAQ page
+- Educate.jsx            Educational content page
+
+webapp/src/context/
+-------------------
+- ThemeContext.jsx       Theme provider
+
+webapp/public/
+--------------
+- favicon.svg            App favicon
+
+webapp/dist/ (Production Build)
+--------------------------------
+- index.html             Built HTML
+- assets/                Bundled JS/CSS
+
+================================================================================
+END OF FILE
+================================================================================
